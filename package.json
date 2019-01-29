@@ -1,21 +1,24 @@
 {
   "author": "Jason Salzman",
-  "name": "react-add-to-calendar",
-  "description":
-    "A simple and reusable add to calendar button component for React",
-  "version": "0.1.5",
+  "name": "@liveauctioneers/react-add-to-calendar",
+  "description": "A simple and reusable add to calendar button component for React",
+  "version": "0.1.6",
   "license": "MIT",
-  "homepage": "https://github.com/jasonsalzman/react-add-to-calendar",
+  "homepage": "https://github.com/LIVEauctioneers/react-add-to-calendar",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jasonsalzman/react-add-to-calendar.git"
+    "url": "https://github.com/LIVEauctioneers/react-add-to-calendar.git"
   },
   "bugs": {
-    "url": "https://github.com/jasonsalzman/react-add-to-calendar/issues"
+    "url": "https://github.com/LIVEauctioneers/react-add-to-calendar/issues"
   },
   "main": "dist/react-add-to-calendar.min.js",
   "style": "dist/react-add-to-calendar.min.css",
-  "files": ["*.md", "dist", "lib"],
+  "files": [
+    "*.md",
+    "dist",
+    "lib"
+  ],
   "keywords": [
     "react",
     "add-to-calendar",
