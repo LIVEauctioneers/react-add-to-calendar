@@ -167,9 +167,11 @@ export default class ReactAddToCalendar extends React.Component {
       ? this.props.buttonClassClosed + " " + this.props.buttonClassOpen
       : this.props.buttonClassClosed;
 
+    const buttonStyle = this.props.buttonStyle || {};
+
     return (
       <div className={this.props.buttonWrapperClass}>
-        <a className={buttonClass} onClick={this.toggleCalendarDropdown}>
+        <a className={buttonClass} onClick={this.toggleCalendarDropdown} style={buttonStyle}>
           {buttonLabel}
         </a>
       </div>
@@ -203,6 +205,7 @@ ReactAddToCalendar.propTypes = {
   buttonClassOpen: PropTypes.string,
   buttonLabel: PropTypes.string,
   buttonTemplate: PropTypes.object,
+  buttonStyle: PropTypes.object,
   buttonIconClass: PropTypes.string,
   useFontAwesomeIcons: PropTypes.bool,
   buttonWrapperClass: PropTypes.string,
@@ -225,6 +228,7 @@ ReactAddToCalendar.defaultProps = {
   buttonClassClosed: "react-add-to-calendar__button",
   buttonClassOpen: "react-add-to-calendar__button--light",
   buttonLabel: "Add to My Calendar",
+  buttonStyle: {},
   buttonTemplate: { caret: "right" },
   buttonIconClass: "react-add-to-calendar__icon--",
   useFontAwesomeIcons: true,
