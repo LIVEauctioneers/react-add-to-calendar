@@ -2,7 +2,7 @@
   "author": "Jason Salzman",
   "name": "@liveauctioneers/react-add-to-calendar",
   "description": "A simple and reusable add to calendar button component for React",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "license": "MIT",
   "homepage": "https://github.com/LIVEauctioneers/react-add-to-calendar",
   "repository": {
