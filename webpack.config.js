@@ -36,14 +36,6 @@ module.exports = {
         amd: 'react'
       }
     },
-    {
-      'moment': {
-        root: 'moment',
-        commonjs2: 'moment',
-        commonjs: 'moment',
-        amd: 'moment'
-      }
-    }
   ],
   node: { Buffer: false },
   plugins: [

@@ -1,4 +1,16 @@
-import moment from "moment";
+import { format } from 'date-fns-tz';
+import { differenceInHours, differenceInMilliseconds, fromUnixTime } from 'date-fns';
+
+const safeFromUnixTime = timestamp => {
+  let date = new Date();
+  if (!timestamp) return date;
+  try {
+      date = fromUnixTime(timestamp);
+  } catch (error) {
+      console.log(error);
+  }
+  return date;
+};
 
 export default class helpers {
   getRandomKey() {
@@ -7,26 +19,33 @@ export default class helpers {
   }
 
   formatTime(date) {
-    let formattedDate = moment.utc(date).format("YYYYMMDDTHHmmssZ");
-    return formattedDate.replace("+00:00", "Z");
+    let ts = date;
+    if (ts > 100000000000) {
+        ts = date / 1000;
+    }
+
+    return (
+      safeFromUnixTime(ts)
+          .toISOString()
+          .split('.')[0]
+          .replace(/[-,:]/g, '') + 'Z'
+  );
   }
 
   calculateDuration(startTime, endTime) {
-    // snag parameters and format properly in UTC
-    let end = moment.utc(endTime).format("DD/MM/YYYY HH:mm:ss");
-    let start = moment.utc(startTime).format("DD/MM/YYYY HH:mm:ss");
+    let end = safeFromUnixTime(endTime / 1000);
+    let start = safeFromUnixTime(startTime / 1000);
+
+    if (startTime < 100000000000) {
+      let end = safeFromUnixTime(endTime);
+      let start = safeFromUnixTime(startTime );
+    }
 
     // calculate the difference in milliseconds between the start and end times
-    let difference = moment(end, "DD/MM/YYYY HH:mm:ss").diff(
-      moment(start, "DD/MM/YYYY HH:mm:ss")
-    );
+    let difference = differenceInMilliseconds(end, start);
+    let differenceHours = differenceInHours(end, start);
 
-    // convert difference from above to a proper momentJs duration object
-    let duration = moment.duration(difference);
-
-    return (
-      Math.floor(duration.asHours()) + moment.utc(difference).format(":mm")
-    );
+    return Math.floor(differenceHours) + format(safeFromUnixTime(difference / 1000), ':mm');
   }
 
   buildUrl(event, type, isCrappyIE) {

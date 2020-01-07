@@ -73,7 +73,7 @@
     "lodash": "^4.17.4",
     "mocha": "^3.4.1",
     "mocha-jsdom": "^1.1.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "4.13.0",
     "prop-types": "^15.5.10",
     "react": "^16.2.0",
     "react-docgen": "^2.15.0",
@@ -89,10 +89,9 @@
   },
   "peerDependencies": {
     "react": "^15.5.4 || ^16.0.0",
-    "react-dom": "^15.5.4 || ^16.0.0"
-  },
-  "optionalDependencies": {
-    "moment": "^2.18.1"
+    "react-dom": "^15.5.4 || ^16.0.0",
+    "date-fns": "^2.8.1",
+    "date-fns-tz": "1.0.8"
   },
   "scripts": {
     "build": "NODE_ENV=production grunt build",
